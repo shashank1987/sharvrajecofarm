@@ -1,0 +1,40 @@
+# Removing .php & html
+	RewriteEngine on
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# URL go to Home page Error 404
+	#ErrorDocument 404 https://www.sharvrajecofarm.com/
+
+# URL go to https://www.example.ex
+	#RewriteCond %{HTTPS} off
+	#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	#RewriteCond %{HTTP_HOST} !^www\.
+	#RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Image caching
+
+<IfModule mod_expires.c>
+ExpiresActive on
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+</IfModule>
+
+
+# Javascript Caching
+
+<IfModule mod_expires.c>
+ExpiresActive on
+ExpiresByType text/javascript "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+
+#css Caching
+
+<IfModule mod_expires.c>
+ExpiresActive on
+ExpiresByType text/css "access plus 1 month"
+</IfModule>

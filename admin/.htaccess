@@ -1,0 +1,14 @@
+# Removing .php & html
+	RewriteEngine on 
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^([^\.]+)$ $1.php [NC,L]
+	RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# URL go to Home page Error 404
+	# ErrorDocument 404 https://www.admin.marigoldsalon.in/
+
+# URL go to https://www.example.ex
+	# RewriteCond %{HTTPS} off
+	# RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	# RewriteCond %{HTTP_HOST} !^www\.
+	# RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
